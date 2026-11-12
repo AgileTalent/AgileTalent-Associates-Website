@@ -160,7 +160,7 @@ function initContactForm() {
                    name="consent" required>
             <span>
               ${CONSENT_TEXT}
-              <a href="privacy.html">Read our privacy notice</a>.
+              <a href="/privacy/">Read our privacy notice</a>.
             </span>
           </label>
           <div class="err" id="e-consent"></div>

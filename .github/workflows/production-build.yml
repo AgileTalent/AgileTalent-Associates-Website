@@ -1,0 +1,74 @@
+name: Build V4 production artifact (no deployment)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v4-production-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout production-prep source
+        uses: actions/checkout@v4
+
+      - name: Assemble production site at domain root
+        run: |
+          mkdir _site
+          rsync -a --exclude='.git' --exclude='_site' ./ _site/
+
+      - name: Verify production artifact
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          root = Path("_site")
+          required = [
+              "index.html", "about/index.html", "services/index.html",
+              "recruitment/index.html", "industries/index.html",
+              "careers/index.html", "insights/index.html", "contact/index.html",
+              "career-studio/index.html", "hr-for-smes/index.html",
+              "performance-management/index.html", "privacy/index.html",
+              "recruitment-outsourcing/index.html", "salarysense/index.html",
+              "style.css", "main.js", "career-studio.css", "career-studio.js",
+              "salarysense.css", "salarysense.js", "robots.txt", "sitemap.xml"
+          ]
+
+          missing = [name for name in required if not (root / name).is_file()]
+          if missing:
+              raise SystemExit("Missing production files: " + ", ".join(missing))
+
+          staging_prefix = "/agiletalent-website-v4/"
+          staging_refs = []
+          for path in list(root.rglob("*.html")) + list(root.rglob("*.css")) + list(root.rglob("*.js")):
+              content = path.read_text(encoding="utf-8")
+              if staging_prefix in content:
+                  staging_refs.append(str(path))
+          if staging_refs:
+              raise SystemExit("Staging project paths found in: " + ", ".join(staging_refs))
+
+          main_js = (root / "main.js").read_text(encoding="utf-8")
+          if 'href="/privacy/"' not in main_js:
+              raise SystemExit("The enquiry form privacy link is not using the production privacy URL.")
+
+          robots = (root / "robots.txt").read_text(encoding="utf-8")
+          if "Sitemap: https://agiletalentassociates.com/sitemap.xml" not in robots:
+              raise SystemExit("robots.txt does not point to the production sitemap.")
+
+          print(f"Production artifact checks passed: {len(required)} required files, root-domain paths, privacy link and sitemap directive.")
+          PY
+
+      - name: Upload production artifact for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: agiletalent-v4-production-build
+          path: _site/
+          if-no-files-found: error
+          retention-days: 14
