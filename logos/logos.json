@@ -1,30 +1,9 @@
 [
-  {
-    "name": "Eric Kayser",
-    "src": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=61579593071897"
-  },
-  {
-    "name": "Autochek",
-    "file": "autochek.png"
-  },
-  {
-    "name": "Novatrack",
-    "src": "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=61583801346451"
-  },
-  {
-    "name": "Rytegate Technologies",
-    "src": "https://pbs.twimg.com/profile_images/981160788160385025/h1L66k7m_400x400.jpg"
-  },
-  {
-    "name": "Shine Shine Cosmetics",
-    "src": "https://www.shineshinecosmetics.net/cdn/shop/files/Screenshot_2023-03-16_125626-removebg-preview_0b8b92f7-6266-4921-b3e6-09b3c275d907.png?v=1711235292"
-  },
-  {
-    "name": "Hub360 Limited",
-    "src": "https://asoc.com.ng/logos/hub360.png"
-  },
-  {
-    "name": "Fifth Ascendant Group",
-    "src": "https://thefifthascendantgroup.com/companies/fivestones.png"
-  }
+  {"name":"Eric Kayser","file":"eric-kayser.png"},
+  {"name":"Autochek","file":"autochek.png"},
+  {"name":"NovaTrack","file":"novatrack.png"},
+  {"name":"Rytegate Technologies","file":"rytegate-technologies.jpg"},
+  {"name":"Shine Shine Cosmetics","file":"shine-shine-cosmetics.png"},
+  {"name":"Hub360 Limited","file":"hub360.png"},
+  {"name":"Fifth Ascendant Group","file":"fifth-ascendant-group.png"}
 ]
