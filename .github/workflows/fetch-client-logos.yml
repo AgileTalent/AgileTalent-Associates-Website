@@ -1,4 +1,4 @@
-name: Fetch official client logos
+name: Fetch official client logos # source asset refresh
 on:
   push:
     paths:
