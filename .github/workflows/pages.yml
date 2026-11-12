@@ -64,6 +64,39 @@ jobs:
                               lambda m: m.group(1) + base + "/" + m.group(2)[:-5] + "/" + m.group(1), source)
               path.write_text(source, encoding="utf-8")
           PY
+      - name: Verify staging artifact paths and pages
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          root = Path("_site")
+          required = [
+              "index.html", "about/index.html", "services/index.html",
+              "recruitment/index.html", "industries/index.html",
+              "careers/index.html", "insights/index.html", "contact/index.html",
+              "career-studio/index.html", "hr-for-smes/index.html",
+              "performance-management/index.html", "privacy/index.html",
+              "recruitment-outsourcing/index.html", "salarysense/index.html",
+              "style.css", "main.js", "career-studio.css", "career-studio.js",
+              "salarysense.css", "salarysense.js"
+          ]
+          missing = [p for p in required if not (root / p).is_file()]
+          if missing:
+              raise SystemExit("Missing required staging files: " + ", ".join(missing))
+
+          base = "/agiletalent-website-v4/"
+          attr = re.compile(r'(?i)\\b(?:href|src|action|poster|data-src)\\s*=\\s*["\\'](/(?!/)[^"\\']*)["\\']')
+          problems = []
+          for path in root.rglob("*.html"):
+              for match in attr.finditer(path.read_text(encoding="utf-8")):
+                  value = match.group(1)
+                  if not value.startswith(base) and not value.startswith("/#"):
+                      problems.append(f"{path}: {value}")
+          if problems:
+              raise SystemExit("Unprefixed root-relative HTML paths: " + "; ".join(problems[:30]))
+          print(f"Verified {len(required)} required files and root-relative staging URLs.")
+          PY
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
