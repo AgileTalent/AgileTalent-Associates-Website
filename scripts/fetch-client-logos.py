@@ -10,12 +10,12 @@ ROOT.mkdir(exist_ok=True)
 SITES = [
     ("eric-kayser", "Eric Kayser", "https://www.maison-kayser.com/gb/"),
     ("autochek", "Autochek", "https://www.autochek.africa/ng/"),
-    ("novatrack", "NovaTrack", "https://www.novatrack.net/"),
-    ("rytegate-technologies", "RyteGate Technologies", "https://www.rytegate.com/"),
+    ("novatrack", "NovaTrack", "https://novatrack.net/"),
+    ("rytegate-technologies", "RyteGate Technologies", "http://rytegate.com/"),
     ("shine-shine-cosmetics", "Shine Shine Cosmetics", None),
     ("algorism", "Algorism Limited", "https://www.algorismng.com/"),
     ("vdt-communications", "VDT Communications", "https://vdtcomms.com/"),
-    ("hub360", "Hub360 Circuits Limited", "https://hub360.cc/"),
+    ("hub360", "Hub360 Limited", "https://hub360.cc/"),
     ("fifth-ascendant-group", "Fifth Ascendant Group", "https://fivestones.ng/"),
 ]
 session = requests.Session()
