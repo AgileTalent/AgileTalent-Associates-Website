@@ -18,12 +18,13 @@
           const list = document.createElement("ul");
           if (hidden) list.setAttribute("aria-hidden", "true");
           items.forEach(item => {
-            if (!item || !item.name || !item.file) return;
+            if (!item || !item.name || (!item.file && !item.src)) return;
             const li = document.createElement("li");
             const img = document.createElement("img");
-            img.src = "/logos/" + item.file;
+            img.src = item.src || ("/logos/" + item.file);
             img.alt = hidden ? "" : item.name;
             img.loading = "lazy";
+            img.referrerPolicy = "no-referrer";
             img.onerror = function () {
               if (!hidden) {
                 const fallback = document.createElement("span");
