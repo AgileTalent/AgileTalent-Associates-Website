@@ -45,18 +45,21 @@
 }
 .careers-secondary-link {font-weight:700}
 
-.vacancy-section {min-height:240px}
+.vacancy-section {min-height:0}
+#current-vacancies,
+#career-tools,
+#talent-registration {padding-top:30px;padding-bottom:30px}
 .vacancy-list {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:22px;
-  margin-top:30px;
+  gap:16px;
+  margin-top:18px;
 }
 .vacancy-card {
   display:flex;
   flex-direction:column;
   min-width:0;
-  padding:25px;
+  padding:22px;
   border:1px solid var(--career-line);
   border-radius:12px;
   background:#fff;
@@ -74,7 +77,7 @@
   font-size:1.25rem;
   line-height:1.4;
 }
-.vacancy-details {display:grid;gap:11px;margin-bottom:22px}
+.vacancy-details {display:grid;gap:11px;margin-bottom:16px}
 .vacancy-detail {
   display:flex;
   flex-wrap:wrap;
@@ -86,25 +89,25 @@
 .vacancy-detail strong {color:var(--career-navy)}
 .vacancy-apply {display:inline-block;align-self:flex-start;margin-top:auto}
 .vacancy-status {
-  padding:24px;
-  margin-top:24px;
+  padding:18px;
+  margin-top:16px;
   border-radius:10px;
   background:var(--career-paper);
 }
 .vacancy-status[hidden] {display:none!important}
 
 .career-tools-section {background:var(--career-paper)}
-.career-tools-intro {max-width:720px;margin-bottom:28px}
+.career-tools-intro {max-width:720px;margin-bottom:18px}
 .career-tools-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:20px;
+  gap:16px;
 }
 .career-tool-card {
   display:flex;
   flex-direction:column;
   min-width:0;
-  padding:28px;
+  padding:22px;
   border:1px solid var(--career-line);
   border-radius:14px;
   background:#fff;
@@ -138,7 +141,7 @@
 .career-tool-note {margin-top:10px;color:#687080;font-size:.82rem;line-height:1.5}
 .careers-cta {
   padding:28px;
-  margin-top:40px;
+  margin-top:24px;
   border-left:4px solid var(--career-gold);
   border-radius:8px;
   background:var(--career-paper);
