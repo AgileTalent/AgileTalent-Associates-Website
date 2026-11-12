@@ -1,0 +1,48 @@
+name: Fetch official client logos
+on:
+  push:
+    paths:
+      - ".github/workflows/fetch-client-logos.yml"
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install image processing dependencies
+        run: pip install requests beautifulsoup4 pillow
+      - name: Fetch logos from official company websites
+        run: python scripts/fetch-client-logos.py
+      - name: Update manifest with verified downloads
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest_path = Path("logos/logos.json")
+          manifest = json.loads(manifest_path.read_text())
+          results = json.loads(Path("logos/fetch-results.json").read_text())
+          available = {item["name"]: item["file"] for item in results if item["status"] == "downloaded"}
+          for item in manifest:
+              if item["name"] in available:
+                  item["file"] = available[item["name"]]
+              else:
+                  item["file"] = None
+          manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
+          PY
+      - name: Commit downloaded official logo assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add logos/
+          if git diff --cached --quiet; then
+            echo "No official logo assets found to commit."
+          else
+            git commit -m "Add available official client logo assets"
+            git push
+          fi
