@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Careers and Job Vacancies in Nigeria | AgileTalent Associates</title>
+<meta name="description" content="Explore job vacancies, access the CV Virtual Assistant and use SalarySense to estimate your Nigerian take-home pay.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://agiletalentassociates.com/careers/">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<meta property="og:title" content="Careers and Job Vacancies | AgileTalent Associates">
+<meta property="og:description" content="Explore opportunities, improve your CV and access SalarySense.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://agiletalentassociates.com/careers/">
+<meta property="og:site_name" content="AgileTalent Associates Limited">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+:root {
+  --career-navy:#0B1426;
+  --career-gold:#F2B705;
+  --career-line:#DAD7CE;
+  --career-paper:#FAF8F3;
+}
+
+.careers-hero .lead {max-width:760px}
+.careers-kicker {
+  color:var(--career-gold);
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.careers-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  align-items:center;
+  margin-top:20px;
+}
+.careers-secondary-link {font-weight:700}
+
+.vacancy-section {min-height:240px}
+.vacancy-list {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+  margin-top:30px;
+}
+.vacancy-card {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  padding:25px;
+  border:1px solid var(--career-line);
+  border-radius:12px;
+  background:#fff;
+  overflow-wrap:anywhere;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.vacancy-card:hover {
+  transform:translateY(-3px);
+  border-color:rgba(242,183,5,.8);
+  box-shadow:0 12px 28px rgba(11,20,38,.06);
+}
+.vacancy-card h3 {
+  margin:0 0 18px;
+  color:var(--career-navy);
+  font-size:1.25rem;
+  line-height:1.4;
+}
+.vacancy-details {display:grid;gap:11px;margin-bottom:22px}
+.vacancy-detail {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  color:#535b68;
+  font-size:.9rem;
+  line-height:1.5;
+}
+.vacancy-detail strong {color:var(--career-navy)}
+.vacancy-apply {display:inline-block;align-self:flex-start;margin-top:auto}
+.vacancy-status {
+  padding:24px;
+  margin-top:24px;
+  border-radius:10px;
+  background:var(--career-paper);
+}
+.vacancy-status[hidden] {display:none!important}
+
+.career-tools-section {background:var(--career-paper)}
+.career-tools-intro {max-width:720px;margin-bottom:28px}
+.career-tools-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+.career-tool-card {
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  padding:28px;
+  border:1px solid var(--career-line);
+  border-radius:14px;
+  background:#fff;
+  box-shadow:0 5px 18px rgba(11,20,38,.035);
+}
+.career-tool-label {
+  display:inline-block;
+  align-self:flex-start;
+  padding:6px 10px;
+  margin-bottom:14px;
+  border-radius:5px;
+  background:#fff5d5;
+  color:#735800;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.career-tool-card h3 {
+  margin:0 0 10px;
+  color:var(--career-navy);
+  font-size:1.35rem;
+  line-height:1.35;
+}
+.career-tool-card p {
+  margin:0 0 20px;
+  color:#535b68;
+  line-height:1.7;
+}
+.career-tool-card .btn {align-self:flex-start;margin-top:auto}
+.career-tool-note {margin-top:10px;color:#687080;font-size:.82rem;line-height:1.5}
+.careers-cta {
+  padding:28px;
+  margin-top:40px;
+  border-left:4px solid var(--career-gold);
+  border-radius:8px;
+  background:var(--career-paper);
+}
+.careers-note {margin-top:18px;color:#535b68;font-size:.9rem;line-height:1.7}
+
+@media(max-width:900px) {
+  .career-tools-grid {grid-template-columns:1fr}
+  .career-tool-card {padding:26px}
+}
+@media(max-width:800px) {
+  .vacancy-list {grid-template-columns:1fr}
+}
+@media(max-width:600px) {
+  .vacancy-card,.careers-cta {padding:22px}
+  .career-tool-card {padding:22px}
+  .career-tool-card .btn {width:100%;text-align:center}
+  .careers-actions {align-items:stretch;flex-direction:column}
+  .careers-actions .btn {text-align:center}
+}
+@media(prefers-reduced-motion:reduce) {
+  .vacancy-card {transition:none}
+  .vacancy-card:hover {transform:none}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="AgileTalent Associates home">
+      <img class="mark" src="/Artboard%204%404x.png" alt="AgileTalent Associates">
+    </a>
+
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="nav" type="button">Menu</button>
+
+    <nav id="nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/recruitment/">Recruitment</a></li>
+        <li><a href="/industries/">Who We Serve</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/careers/" aria-current="page">Careers</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a class="btn" href="/contact/">Let’s Talk</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<section class="sec dark careers-hero">
+  <div class="wrap">
+    <p class="careers-kicker">Your next opportunity</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.6rem);max-width:850px">Find Your Next Career Opportunity</h1>
+    <p class="lead">Explore current opportunities and discover roles that match your experience, skills and career goals. Review each vacancy carefully before applying, or register your CV for future opportunities.</p>
+    <div class="careers-actions">
+      <a class="btn" href="#current-vacancies">View Current Vacancies</a>
+      <a class="careers-secondary-link" href="#talent-registration">Register Your CV →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec vacancy-section" id="current-vacancies">
+  <div class="wrap">
+    <p class="lab">Career opportunities</p>
+    <h2>Current Job Vacancies</h2>
+    <p style="max-width:760px">Explore available opportunities and apply for roles that match your career interests.</p>
+    <div id="vacancy-status" class="vacancy-status" role="status" aria-live="polite">
+      <p>Loading current vacancies. Please wait…</p>
+    </div>
+    <div id="vacancy-list" class="vacancy-list"></div>
+    <noscript><div class="vacancy-status">JavaScript must be enabled to display current vacancies. You can still register your CV using the talent registration link below.</div></noscript>
+  </div>
+</section>
+
+<!-- CAREER TOOLS -->
+<section class="sec career-tools-section" id="career-tools">
+  <div class="wrap">
+    <div class="career-tools-intro">
+      <p class="lab">Career tools &amp; resources</p>
+      <h2>Tools to Support Your Career and Financial Decisions</h2>
+      <p>Access practical digital tools from AgileTalent Associates, designed to help you present your professional value and better understand your earnings.</p>
+    </div>
+
+    <div class="career-tools-grid">
+      <article class="career-tool-card">
+        <span class="career-tool-label">Virtual CV support</span>
+        <h3>AgileTalent Career Studio</h3>
+        <p>Create, review and improve your CV with virtual guidance. Strengthen how your skills, experience and achievements are presented to prospective employers.</p>
+        <a class="btn" href="/career-studio/">Launch CV Assistant →</a>
+        <p class="career-tool-note">Free to use. No payment required.</p>
+      </article>
+
+      <article class="career-tool-card">
+        <span class="career-tool-label">Nigerian payroll calculator</span>
+        <h3>SalarySense</h3>
+        <p>Estimate your Nigerian take-home pay and understand PAYE, pension contributions and other applicable deductions through a clear salary breakdown.</p>
+        <a class="btn" href="/salarysense/">Launch SalarySense</a>
+        <p class="career-tool-note">Free to use. Estimates are for guidance and should be validated against applicable payroll rules.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TALENT REGISTRATION -->
+<section class="sec" id="talent-registration">
+  <div class="wrap">
+    <div class="careers-cta">
+      <p class="lab">Join our talent network</p>
+      <h2>Don't See a Suitable Vacancy?</h2>
+      <p>Register your profile and upload your CV even if there is no suitable vacancy listed today. Our recruitment team can consider your information for relevant opportunities as they become available.</p>
+      <div class="careers-actions">
+        <a class="btn" href="https://script.google.com/macros/s/AKfycbwfdsY72BZPa74n3_HI6MWe9KqGfMp50cT7Jzfw1wRtYhu3QxsVO3hRZSAV49ABZ4Eu/exec?view=general" target="_blank" rel="noopener noreferrer">Register Your CV</a>
+        <a class="careers-secondary-link" href="#current-vacancies">View Current Vacancies</a>
+      </div>
+      <p class="careers-note">Your information will be collected for recruitment-related purposes. Please provide accurate details and review the consent statement before submitting your registration.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark">
+  <div class="wrap">
+    <p class="lab" style="color:var(--career-gold)">Build your future</p>
+    <h2>Stay Connected with AgileTalent</h2>
+    <p class="lead" style="max-width:760px">Follow AgileTalent Associates for company updates, career-related information and perspectives on recruitment and the workplace.</p>
+    <p style="margin-top:24px"><a href="https://www.linkedin.com/company/agiletalent-associates" target="_blank" rel="noopener noreferrer">Follow us on LinkedIn →</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <p style="color:#fff;font:700 1.2rem var(--f-head);margin-bottom:.4em">AgileTalent Associates Limited</p>
+      <p>Human resources consulting, recruitment and workforce solutions for Nigerian organisations. Established 2022.</p>
+      <p><a href="mailto:agiletalents@outlook.com">agiletalents@outlook.com</a></p>
+      <p><a href="tel:+2347036783875">+234 703 678 3875</a></p>
+      <p><a href="https://wa.me/2348152866467" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp</a></p>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="/about/">About us</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/recruitment/">Recruitment</a></li>
+        <li><a href="/industries/">Who we serve</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/careers/">Careers</a></li>
+        <li><a href="/salarysense/">SalarySense</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Connect</h2>
+      <ul>
+        <li><a href="https://x.com/agiletalents_ng" target="_blank" rel="noopener noreferrer">X</a></li>
+        <li><a href="https://www.linkedin.com/company/agiletalent-associates" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="/privacy/">Privacy notice</a></li>
+      </ul>
+      <p style="margin-top:1em">Advisory support is not legal advice.</p>
+    </div>
+  </div>
+
+  <div class="wrap social-area">
+    <h2 class="social-heading">Connect with AgileTalent</h2>
+    <div class="social-links">
+      <a href="https://x.com/agiletalents_ng" target="_blank" rel="noopener noreferrer" aria-label="Follow AgileTalent Associates on X">
+        <svg class="social-icon" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="#000"/>
+          <path d="M18.9 15h8.2l7.4 10 8.8-10h3.1L36 27.1 47.5 49h-8.2l-8.1-11.7L20.9 49h-3.2l12-13.8L18.9 15zm4.5 2.7 17.2 28.6h3.1L26.5 17.7h-3.1z" fill="#fff"/>
+        </svg><span>X</span>
+      </a>
+      <a href="https://www.linkedin.com/company/agiletalent-associates" target="_blank" rel="noopener noreferrer" aria-label="Follow AgileTalent Associates on LinkedIn">
+        <svg class="social-icon" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="#0A66C2"/>
+          <g fill="#fff" transform="translate(14 14) scale(1.55)">
+            <path d="M3.5 6.5A2.25 2.25 0 1 0 3.5 2a2.25 2.25 0 0 0 0 4.5zM1.5 8h4v14h-4zM8 8h3.8v1.9h.1C12.4 8.8 13.8 7.6 16 7.6c4.1 0 4.9 2.7 4.9 6.2V22h-4v-7.3c0-1.8 0-4-2.4-4s-2.8 1.9-2.8 3.9V22H8z"/>
+          </g>
+        </svg><span>LinkedIn</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p style="margin-top:32px;font-size:.85rem">&copy; 2026 AgileTalent Associates Limited. All rights reserved.</p>
+  </div>
+</footer>
+
+<a class="btn sticky" id="sticky" href="/contact/">Let’s Talk</a>
+
+<script src="/main.js"></script>
+
+<!-- VACANCY FEED -->
+<script>
+(function () {
+  "use strict";
+
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwfdsY72BZPa74n3_HI6MWe9KqGfMp50cT7Jzfw1wRtYhu3QxsVO3hRZSAV49ABZ4Eu/exec";
+  const statusBox = document.getElementById("vacancy-status");
+  const vacancyList = document.getElementById("vacancy-list");
+  let feedLoaded = false;
+
+  function addText(parent, tag, value, className) {
+    if (value === null || value === undefined || String(value).trim() === "") return null;
+    const element = document.createElement(tag);
+    element.textContent = String(value).trim();
+    if (className) element.className = className;
+    parent.appendChild(element);
+    return element;
+  }
+
+  function createApplicationUrl(vacancy) {
+    const vacancyId = String(vacancy.id || "").trim();
+    const title = String(vacancy.title || "").trim();
+    if (!vacancyId || !title) return "";
+    const url = new URL(APPS_SCRIPT_URL);
+    url.searchParams.set("view", "job");
+    url.searchParams.set("vacancyId", vacancyId);
+    url.searchParams.set("title", title);
+    return url.toString();
+  }
+
+  function addDetail(parent, label, value, fallback) {
+    const row = document.createElement("div");
+    row.className = "vacancy-detail";
+    const heading = document.createElement("strong");
+    heading.textContent = label + ":";
+    const content = document.createElement("span");
+    content.textContent = value !== null && value !== undefined && String(value).trim() ? String(value).trim() : fallback;
+    row.append(heading, content);
+    parent.appendChild(row);
+  }
+
+  function addVacancy(vacancy) {
+    const card = document.createElement("article");
+    card.className = "vacancy-card";
+    addText(card, "h3", vacancy.title || "Vacancy");
+    const details = document.createElement("div");
+    details.className = "vacancy-details";
+    addDetail(details, "Pay", vacancy.salary || vacancy.pay, "Not disclosed");
+    addDetail(details, "Location", vacancy.location, "Not specified");
+    addDetail(details, "Industry", vacancy.industry, "Not specified");
+    card.appendChild(details);
+
+    const applicationUrl = createApplicationUrl(vacancy);
+    if (applicationUrl) {
+      const action = document.createElement("div");
+      action.className = "vacancy-apply";
+      const link = document.createElement("a");
+      link.className = "btn";
+      link.href = applicationUrl;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Apply Now";
+      action.appendChild(link);
+      card.appendChild(action);
+    }
+    vacancyList.appendChild(card);
+  }
+
+  function createRegistrationLink() {
+    const link = document.createElement("a");
+    link.className = "btn";
+    link.href = APPS_SCRIPT_URL + "?view=general";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Register Your CV";
+    return link;
+  }
+
+  function showNoVacancies() {
+    statusBox.hidden = false;
+    statusBox.replaceChildren();
+    addText(statusBox, "h3", "No current vacancies are listed.");
+    addText(statusBox, "p", "You can register your CV with AgileTalent Associates for consideration for relevant future opportunities.");
+    statusBox.appendChild(createRegistrationLink());
+  }
+
+  function showFeedError() {
+    statusBox.hidden = false;
+    statusBox.replaceChildren();
+    addText(statusBox, "h3", "Vacancies could not be loaded.");
+    addText(statusBox, "p", "Please try again later. You can still register your CV for future opportunities.");
+    statusBox.appendChild(createRegistrationLink());
+  }
+
+  window.agileTalentVacanciesLoaded = function (response) {
+    if (feedLoaded) return;
+    feedLoaded = true;
+    vacancyList.replaceChildren();
+    statusBox.replaceChildren();
+
+    if (!response || response.success !== true || !Array.isArray(response.vacancies)) {
+      showFeedError();
+      return;
+    }
+
+    const vacancies = response.vacancies.filter(vacancy =>
+      String(vacancy.status || "").trim().toLowerCase() === "published"
+    );
+
+    if (!vacancies.length) {
+      showNoVacancies();
+      return;
+    }
+
+    vacancies.forEach(addVacancy);
+    statusBox.hidden = true;
+  };
+
+  const script = document.createElement("script");
+  script.src = APPS_SCRIPT_URL + "?callback=" + encodeURIComponent("agileTalentVacanciesLoaded");
+  script.async = true;
+  script.onerror = function () {
+    if (feedLoaded) return;
+    feedLoaded = true;
+    showFeedError();
+  };
+  document.head.appendChild(script);
+
+  window.setTimeout(function () {
+    if (!feedLoaded) {
+      feedLoaded = true;
+      showFeedError();
+    }
+  }, 15000);
+})();
+</script>
+
+</body>
+</html>
