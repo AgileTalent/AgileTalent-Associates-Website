@@ -86,7 +86,7 @@ jobs:
               raise SystemExit("Missing required staging files: " + ", ".join(missing))
 
           base = "/agiletalent-website-v4/"
-          attr = re.compile(r'(?i)\\b(?:href|src|action|poster|data-src)\\s*=\\s*["\\'](/(?!/)[^"\\']*)["\\']')
+          attr = re.compile(r'(?i)\b(?:href|src|action|poster|data-src)\s*=\s*["\'](/(?!/)[^"\']*)["\']')
           problems = []
           for path in root.rglob("*.html"):
               for match in attr.finditer(path.read_text(encoding="utf-8")):
