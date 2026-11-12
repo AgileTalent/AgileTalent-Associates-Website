@@ -1185,17 +1185,16 @@ footer a:hover {
 
 
 /* SITEWIDE COMPACT SECTION RHYTHM
-   Keeps the existing visual system while reducing excessive vertical whitespace. */
-section.sec,
-section.section {
-  padding-top: clamp(40px, 5vw, 60px);
-  padding-bottom: clamp(40px, 5vw, 60px);
+   Retains existing brand styling while reducing excessive vertical whitespace. */
+section:not(.hero):not(.about-hero):not(.services-hero):not(.recruit-hero):not(.careers-hero):not(.industry-hero):not(.insights-hero):not(.career-studio):not(.cs-workspace):not(.cs-chat):not(.cs-panel):not(.cs-result-section):not(.cs-download):not(.cs-information) {
+  padding-top: clamp(32px, 4vw, 52px) !important;
+  padding-bottom: clamp(32px, 4vw, 52px) !important;
 }
 
-/* Preserve generous breathing room for primary hero sections. */
-section.sec.careers-hero,
-section.sec.industry-hero,
-section.sec.insights-hero {
-  padding-top: clamp(56px, 7vw, 84px);
-  padding-bottom: clamp(56px, 7vw, 84px);
+/* Keep the main landing sections balanced on smaller screens. */
+@media (max-width: 600px) {
+  section:not(.hero):not(.about-hero):not(.services-hero):not(.recruit-hero):not(.careers-hero):not(.industry-hero):not(.insights-hero):not(.career-studio):not(.cs-workspace):not(.cs-chat):not(.cs-panel):not(.cs-result-section):not(.cs-download):not(.cs-information) {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
 }
