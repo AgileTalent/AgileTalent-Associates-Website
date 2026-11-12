@@ -36,19 +36,19 @@ jobs:
           root = Path("_site")
 
           # Prefix root-relative HTML URL attributes for the GitHub project-site preview.
-          attr = re.compile(r'(?i)(\\b(?:href|src|action|poster|data-src)\\s*=\\s*)(["\'])/(?!/)([^"\']*)\\2')
-          refresh = re.compile(r'(?i)(url\\s*=\\s*)/(?!/)([^;\\s"\']+)')
+          attr = re.compile(r'(?i)(\b(?:href|src|action|poster|data-src)\s*=\s*)(["\'])/(?!/)([^"\']*)\2')
+          refresh = re.compile(r'(?i)(url\s*=\s*)/(?!/)([^;\s"\']+)')
           for path in root.rglob("*.html"):
               source = path.read_text(encoding="utf-8")
               source = attr.sub(lambda m: m.group(1) + m.group(2) + base + "/" + m.group(3) + m.group(2), source)
               source = refresh.sub(lambda m: m.group(1) + base + "/" + m.group(2), source)
               source = source.replace("window.location.replace('/", "window.location.replace('" + base + "/")
-              source = re.sub(r'(["\'])((?:about|career-studio|careers|contact|hr-for-smes|industries|insights|performance-management|privacy|recruitment-outsourcing|recruitment|salarysense|services)\\.html)\\1',
+              source = re.sub(r'(["\'])((?:about|career-studio|careers|contact|hr-for-smes|industries|insights|performance-management|privacy|recruitment-outsourcing|recruitment|salarysense|services)\.html)\1',
                               lambda m: m.group(1) + base + "/" + m.group(2)[:-5] + "/" + m.group(1), source)
               path.write_text(source, encoding="utf-8")
 
           # Prefix root-relative CSS assets without touching external URLs or data URIs.
-          css_url = re.compile(r'url\\(\\s*(["\']?)/(?!/)([^)"\']+)')
+          css_url = re.compile(r'url\(\s*(["\']?)/(?!/)([^)"\']+)')
           for path in root.rglob("*.css"):
               source = path.read_text(encoding="utf-8")
               source = css_url.sub(lambda m: "url(" + m.group(1) + base + "/" + m.group(2), source)
@@ -58,9 +58,9 @@ jobs:
           # used by generated content (e.g. the privacy-notice link).
           for path in root.rglob("*.js"):
               source = path.read_text(encoding="utf-8")
-              source = re.sub(r'(["\'])/(?!/)([^"\']*)\\1',
+              source = re.sub(r'(["\'])/(?!/)([^"\']*)\1',
                               lambda m: m.group(1) + base + "/" + m.group(2) + m.group(1), source)
-              source = re.sub(r'(["\'])((?:about|career-studio|careers|contact|hr-for-smes|industries|insights|performance-management|privacy|recruitment-outsourcing|recruitment|salarysense|services)\\.html)\\1',
+              source = re.sub(r'(["\'])((?:about|career-studio|careers|contact|hr-for-smes|industries|insights|performance-management|privacy|recruitment-outsourcing|recruitment|salarysense|services)\.html)\1',
                               lambda m: m.group(1) + base + "/" + m.group(2)[:-5] + "/" + m.group(1), source)
               path.write_text(source, encoding="utf-8")
           PY
