@@ -1,4 +1,4 @@
-name: Deploy AgileTalent V4 to GitHub Pages
+name: Deploy V4 staging site to GitHub Pages
 
 on:
   push:
@@ -24,15 +24,50 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Prepare production artifact
+      - name: Prepare project-site paths
         run: |
           mkdir _site
           rsync -a --exclude='.git' --exclude='_site' ./ _site/
-      - name: Verify production artifact
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+
+          base = "/agiletalent-website-v4"
+          root = Path("_site")
+
+          # Prefix root-relative HTML URL attributes for the GitHub project-site preview.
+          attr = re.compile(r'(?i)(\b(?:href|src|action|poster|data-src)\s*=\s*)(["\'])/(?!/)([^"\']*)\2')
+          refresh = re.compile(r'(?i)(url\s*=\s*)/(?!/)([^;\s"\']+)')
+          for path in root.rglob("*.html"):
+              source = path.read_text(encoding="utf-8")
+              source = attr.sub(lambda m: m.group(1) + m.group(2) + base + "/" + m.group(3) + m.group(2), source)
+              source = refresh.sub(lambda m: m.group(1) + base + "/" + m.group(2), source)
+              source = source.replace("window.location.replace('/", "window.location.replace('" + base + "/")
+              source = re.sub(r'(["\'])((?:about|career-studio|careers|contact|hr-for-smes|industries|insights|performance-management|privacy|recruitment-outsourcing|recruitment|salarysense|services)\.html)\1',
+                              lambda m: m.group(1) + base + "/" + m.group(2)[:-5] + "/" + m.group(1), source)
+              path.write_text(source, encoding="utf-8")
+
+          # Prefix root-relative CSS assets without touching external URLs or data URIs.
+          css_url = re.compile(r'url\(\s*(["\']?)/(?!/)([^)"\']+)')
+          for path in root.rglob("*.css"):
+              source = path.read_text(encoding="utf-8")
+              source = css_url.sub(lambda m: "url(" + m.group(1) + base + "/" + m.group(2), source)
+              path.write_text(source, encoding="utf-8")
+
+          # Rewrite root-relative string paths and legacy .html links in JavaScript
+          # used by generated content (e.g. the privacy-notice link).
+          for path in root.rglob("*.js"):
+              source = path.read_text(encoding="utf-8")
+              source = re.sub(r'(["\'])/(?!/)([^"\']*)\1',
+                              lambda m: m.group(1) + base + "/" + m.group(2) + m.group(1), source)
+              source = re.sub(r'(["\'])((?:about|career-studio|careers|contact|hr-for-smes|industries|insights|performance-management|privacy|recruitment-outsourcing|recruitment|salarysense|services)\.html)\1',
+                              lambda m: m.group(1) + base + "/" + m.group(2)[:-5] + "/" + m.group(1), source)
+              path.write_text(source, encoding="utf-8")
+          PY
+      - name: Verify staging artifact paths and pages
         run: |
           python3 <<'PY'
           from pathlib import Path
-          from urllib.parse import unquote
           import re
 
           root = Path("_site")
@@ -44,36 +79,25 @@ jobs:
               "performance-management/index.html", "privacy/index.html",
               "recruitment-outsourcing/index.html", "salarysense/index.html",
               "style.css", "main.js", "career-studio.css", "career-studio.js",
-              "salarysense.css", "salarysense.js", "sitemap.xml", "robots.txt",
-              "CNAME"
+              "salarysense.css", "salarysense.js"
           ]
           missing = [p for p in required if not (root / p).is_file()]
           if missing:
-              raise SystemExit("Missing required production files: " + ", ".join(missing))
+              raise SystemExit("Missing required staging files: " + ", ".join(missing))
 
-          cname = (root / "CNAME").read_text(encoding="utf-8").strip().lower()
-          if cname != "agiletalentassociates.com":
-              raise SystemExit("Unexpected CNAME: " + cname)
-
-          # Decode URL-escaped filenames (e.g. spaces and @) before checking paths.
+          base = "/agiletalent-website-v4/"
+          attr = re.compile(r'(?i)\b(?:href|src|action|poster|data-src)\s*=\s*["\'](/(?!/)[^"\']*)["\']')
           problems = []
           for path in root.rglob("*.html"):
-              source = path.read_text(encoding="utf-8")
-              for match in re.finditer(r"""(?i)\b(?:href|src|action|poster|data-src)\s*=\s*["'](/(?!/)[^"']*)["']""", source):
-                  value = unquote(match.group(1).split("#", 1)[0].split("?", 1)[0])
-                  if not value or value == "/":
-                      continue
-                  target = root / value.lstrip("/")
-                  if target.is_dir():
-                      target = target / "index.html"
-                  if not target.is_file():
+              for match in attr.finditer(path.read_text(encoding="utf-8")):
+                  value = match.group(1)
+                  if not value.startswith(base) and not value.startswith("/#"):
                       problems.append(f"{path}: {value}")
           if problems:
-              raise SystemExit("Broken root-relative HTML references: " + "; ".join(problems[:40]))
-
-          print(f"Verified {len(required)} required production files and root-relative references.")
+              raise SystemExit("Unprefixed root-relative staging paths: " + "; ".join(problems[:30]))
+          print(f"Verified {len(required)} required files and root-relative staging URLs.")
           PY
-      - name: Upload production site
+      - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
@@ -84,6 +108,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy production site
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
