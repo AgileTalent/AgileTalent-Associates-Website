@@ -59,7 +59,7 @@ jobs:
           problems = []
           for path in root.rglob("*.html"):
               source = path.read_text(encoding="utf-8")
-              for match in re.finditer(r'(?i)\\b(?:href|src|action|poster|data-src)\\s*=\\s*["\\'](/(?!/)[^"\\']*)["\\']', source):
+              for match in re.finditer(r"""(?i)\\b(?:href|src|action|poster|data-src)\\s*=\\s*["'](/(?!/)[^"']*)["']""", source):
                   value = match.group(1).split("#", 1)[0].split("?", 1)[0]
                   if not value or value == "/":
                       continue
