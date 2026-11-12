@@ -14,29 +14,17 @@
   {
     "name": "NovaTrack",
     "status": "not-found",
-    "reason": "Official site returned no clear logo image asset; left blank rather than guessing."
+    "reason": "Official site returned no clear logo image asset; supplied image source is used in the site manifest."
   },
   {
     "name": "RyteGate Technologies",
     "status": "not-found",
-    "reason": "500 Server Error: Internal Server Error for url: http://rytegate.com/"
+    "reason": "Official site returned HTTP 500; supplied image source is used in the site manifest."
   },
   {
     "name": "Shine Shine Cosmetics",
     "status": "skipped",
-    "reason": "No verified official website located; no third-party logo substituted."
-  },
-  {
-    "name": "Algorism Limited",
-    "status": "downloaded",
-    "file": "algorism.svg",
-    "source": "https://www.algorismng.com/"
-  },
-  {
-    "name": "VDT Communications",
-    "status": "downloaded",
-    "file": "vdt-communications.png",
-    "source": "https://vdtcomms.com/"
+    "reason": "No verified official website located; supplied image source is used in the site manifest."
   },
   {
     "name": "Hub360 Limited",
