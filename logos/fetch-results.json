@@ -3,36 +3,32 @@
     "name": "Eric Kayser",
     "status": "fallback-local",
     "file": "eric-kayser.svg",
-    "reason": "cannot identify image file <_io.BytesIO object at 0x709f48b08d60>"
+    "reason": "cannot identify image file <_io.BytesIO object at 0x7a9ffeb04c20>"
   },
   {
     "name": "NovaTrack",
     "status": "failed",
     "file": null,
-    "reason": "cannot identify image file <_io.BytesIO object at 0x709f48b08f90>"
+    "reason": "cannot identify image file <_io.BytesIO object at 0x7a9ffeb04e50>"
   },
   {
     "name": "Rytegate Technologies",
     "status": "downloaded",
-    "file": "rytegate-technologies.jpg",
-    "source_url_used_for_download": true
+    "file": "rytegate-technologies.png"
   },
   {
     "name": "Shine Shine Cosmetics",
     "status": "downloaded",
-    "file": "shine-shine-cosmetics.png",
-    "source_url_used_for_download": true
+    "file": "shine-shine-cosmetics.png"
   },
   {
     "name": "Hub360 Limited",
     "status": "downloaded",
-    "file": "hub360.png",
-    "source_url_used_for_download": true
+    "file": "hub360.png"
   },
   {
     "name": "Fifth Ascendant Group",
     "status": "downloaded",
-    "file": "fifth-ascendant-group.png",
-    "source_url_used_for_download": true
+    "file": "fifth-ascendant-group.png"
   }
 ]
