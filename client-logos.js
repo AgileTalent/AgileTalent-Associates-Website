@@ -14,24 +14,22 @@
         const track = container.querySelector(".marq-track");
         if (!track) return;
         track.replaceChildren();
-        const makeList = (hidden) => {
+        const makeList = hidden => {
           const list = document.createElement("ul");
           if (hidden) list.setAttribute("aria-hidden", "true");
           items.forEach(item => {
-            if (!item || !item.name || (!item.file && !item.src)) return;
+            if (!item || !item.name || !item.file) return;
             const li = document.createElement("li");
             const img = document.createElement("img");
-            img.src = item.src || ("/logos/" + item.file);
+            img.src = "/logos/" + item.file;
             img.alt = hidden ? "" : item.name;
             img.loading = "lazy";
-            img.referrerPolicy = "no-referrer";
-            img.onerror = function () {
-              if (!hidden) {
+            img.onerror = () => {
+              if (hidden) li.remove();
+              else {
                 const fallback = document.createElement("span");
                 fallback.textContent = item.name;
                 li.replaceChildren(fallback);
-              } else {
-                li.remove();
               }
             };
             li.appendChild(img);
