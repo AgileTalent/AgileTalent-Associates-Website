@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>HR Consulting & Recruitment Across Industries in Nigeria | AgileTalent</title>
+  <meta name="description" content="AgileTalent Associates provides recruitment, HR consulting, payroll and workforce solutions for financial services, technology, professional services, retail, healthcare and growing businesses in Nigeria.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://agiletalentassociates.com/industries/">
+
+  <meta property="og:title" content="Who We Serve | AgileTalent Associates">
+  <meta property="og:description" content="Practical recruitment and HR solutions tailored to your organisation, workforce and business priorities across Nigeria.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://agiletalentassociates.com/industries/">
+  <meta property="og:site_name" content="AgileTalent Associates Limited">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --f-head: 'Inter', sans-serif;
+      --f-body: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: var(--f-body);
+    }
+
+    h1, h2, h3, h4, .brand, .btn {
+      font-family: var(--f-head);
+    }
+
+    header .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    header .brand-descriptor {
+      display: inline-block;
+      max-width: 190px;
+      padding-left: 12px;
+      border-left: 1px solid #d6d6d6;
+      color: #6b7280;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .industry-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .industry-hero .lead {
+      max-width: 760px;
+    }
+
+    .industry-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 28px;
+      margin-top: 30px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.2);
+    }
+
+    .industry-proof p {
+      margin: 0;
+      color: rgba(255,255,255,.88);
+      font-size: .95rem;
+    }
+
+    .industry-proof strong {
+      color: var(--gold);
+    }
+
+    .industry-intro {
+      max-width: 760px;
+    }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .industry-card {
+      box-sizing: border-box;
+      height: 100%;
+      padding: 28px;
+      border: 1px solid rgba(11,20,38,.12);
+      border-radius: 14px;
+      background: #fff;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .industry-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(242,183,5,.75);
+      box-shadow: 0 12px 28px rgba(11,20,38,.06);
+    }
+
+    .industry-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background: #FAF8F3;
+      color: #0B1426;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .industry-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .industry-card p {
+      margin-bottom: 0;
+      color: #535b68;
+      line-height: 1.75;
+    }
+
+    .industry-services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 24px;
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .industry-services li {
+      position: relative;
+      padding-left: 24px;
+      line-height: 1.7;
+    }
+
+    .industry-services li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #9A7300;
+      font-weight: 700;
+    }
+
+    .industry-advantage {
+      align-items: start;
+    }
+
+    .industry-advantage .lead {
+      max-width: 650px;
+    }
+
+    .industry-stat {
+      margin: 10px 0 20px;
+      color: var(--gold);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .industry-cta {
+      margin-top: 24px;
+    }
+
+    .industry-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 18px;
+    }
+
+    .industry-contact a {
+      overflow-wrap: anywhere;
+    }
+
+    .industry-contact p {
+      margin: 0;
+    }
+
+    .industry-note {
+      font-size: .9rem;
+      opacity: .85;
+    }
+
+    @media (max-width: 1000px) {
+      .industry-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      header .brand {
+        gap: 8px;
+        min-width: 0;
+      }
+
+      header .brand .mark {
+        max-width: 145px;
+        height: auto;
+      }
+
+      header .brand-descriptor {
+        max-width: 125px;
+        padding-left: 8px;
+        font-size: 10px;
+      }
+
+      .industry-grid,
+      .industry-services {
+        grid-template-columns: 1fr;
+      }
+
+      .industry-card {
+        padding: 23px;
+      }
+
+      .industry-proof {
+        gap: 12px 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .industry-card {
+        transition: none;
+      }
+
+      .industry-card:hover {
+        transform: none;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AgileTalent Associates Limited",
+    "url": "https://agiletalentassociates.com/",
+    "logo": "https://agiletalentassociates.com/Artboard%204@4x.png",
+    "foundingDate": "2022",
+    "email": "agiletalents@outlook.com",
+    "telephone": "+2347036783875",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Nigeria"
+    },
+    "description": "Human resources consulting, recruitment and workforce solutions for Nigerian organisations.",
+    "sameAs": [
+      "https://x.com/agiletalents_ng",
+      "https://www.linkedin.com/company/agiletalent-associates"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header>
+    <div class="wrap bar">
+      <a class="brand" href="/" aria-label="AgileTalent Associates home">
+        <img
+          class="mark"
+          src="/Artboard 4@4x.png"
+          alt="AgileTalent Associates"
+          onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'wm',textContent:'AgileTalent Associates'}))"
+        >
+        <span class="brand-descriptor">Recruitment &amp; HR Consulting Firm in Nigeria</span></a>
+
+      <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">
+        Menu
+      </button>
+
+      <nav id="nav" aria-label="Main">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/recruitment/">Recruitment</a></li>
+          <li><a href="/industries/" aria-current="page">Who we serve</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/careers/">Careers</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a class="btn" href="/contact/">Let’s Talk</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- HERO -->
+    <section class="sec dark industry-hero">
+      <div class="wrap">
+        <p class="lab" style="color:var(--gold);font-weight:600;letter-spacing:.08em;text-transform:uppercase">
+          Who we serve
+        </p>
+
+        <h1 style="font-size:clamp(2.2rem,5vw,3.6rem);max-width:850px">
+          People Solutions Built Around Your Business
+        </h1>
+
+        <p class="lead">
+          Different industries face different workforce challenges.
+          AgileTalent Associates helps Nigerian organisations attract talent,
+          strengthen HR practices and build the people capabilities required
+          to support their business objectives.
+        </p>
+
+        <p style="margin-top:28px">
+          <a class="btn" href="/contact/">Discuss Your Business Needs</a>
+        </p>
+
+        <div class="industry-proof">
+          <p><strong>Established 2022</strong> — supporting organisational growth</p>
+          <p><strong>4,000+ candidates</strong> in our pre-screened database</p>
+          <p><strong>Integrated support</strong> across recruitment and HR</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES -->
+    <section class="sec">
+      <div class="wrap">
+        <p class="lab">Industries and businesses</p>
+        <h2>Relevant Support for Different Workforce Needs</h2>
+
+        <p class="industry-intro">
+          Our approach starts with your organisation's priorities, structure
+          and workforce requirements. We tailor the scope of our support to
+          the needs of your business rather than assuming every organisation
+          requires the same solution.
+        </p>
+
+        <div class="industry-grid">
+
+          <article class="industry-card">
+            <span class="industry-number">01</span>
+            <h3>Financial Services and Fintech</h3>
+            <p>
+              Recruitment and people support for customer-focused and
+              operational environments, with attention to role requirements,
+              service delivery and the capabilities needed to support business
+              performance.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <span class="industry-number">02</span>
+            <h3>Technology and Telecommunications</h3>
+            <p>
+              Talent sourcing and HR support for organisations developing
+              products, delivering technical services or adapting their
+              workforce to changing business and technology needs.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <span class="industry-number">03</span>
+            <h3>Professional Services</h3>
+            <p>
+              Recruitment, HR advisory and people management support for
+              organisations that depend on professional capability, employee
+              performance and consistent service quality.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <span class="industry-number">04</span>
+            <h3>Retail and Consumer Businesses</h3>
+            <p>
+              Workforce solutions for businesses managing customer-facing
+              teams, changing staffing requirements and the need for reliable
+              employee performance across their operations.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <span class="industry-number">05</span>
+            <h3>Healthcare and Related Services</h3>
+            <p>
+              Recruitment and HR support shaped around role-specific
+              requirements, workforce coordination and people processes that
+              help service organisations operate effectively.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <span class="industry-number">06</span>
+            <h3>SMEs and Growing Businesses</h3>
+            <p>
+              Practical recruitment, payroll, HR consulting and policy support
+              for businesses building their teams, formalising processes or
+              strengthening their people management as they grow.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE HELP -->
+    <section class="sec" style="background:var(--off-white,#FAF8F3)">
+      <div class="wrap split">
+        <div>
+          <p class="lab">Our approach</p>
+          <h2>Start With the Business Need</h2>
+        </div>
+
+        <div>
+          <p>
+            Effective people solutions begin with a clear understanding of
+            the problem to be solved. We work with you to identify your
+            priorities, clarify the scope of support and agree the practical
+            next steps.
+          </p>
+
+          <ul class="industry-services">
+            <li>Recruitment and recruitment outsourcing</li>
+            <li>HR consulting and policy development</li>
+            <li>Payroll support for SMEs</li>
+            <li>Performance management</li>
+            <li>Employee relations and HR processes</li>
+            <li>Learning and workforce development</li>
+          </ul>
+
+          <p>
+            <a class="btn" href="/services/">Explore Our Services</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECRUITMENT ADVANTAGE -->
+    <section class="sec dark">
+      <div class="wrap split industry-advantage">
+        <div>
+          <p class="lab" style="color:var(--gold);font-weight:600;letter-spacing:.08em;text-transform:uppercase">
+            Recruitment support
+          </p>
+
+          <p class="industry-stat">4,000+</p>
+
+          <h2>Pre-Screened Candidates. A Stronger Starting Point.</h2>
+
+          <p class="lead">
+            Our candidate database gives AgileTalent Associates a valuable
+            starting point when supporting organisations with recruitment
+            requirements.
+          </p>
+        </div>
+
+        <div>
+          <p>
+            Whether you need to fill a critical vacancy, build a team or
+            recruit for multiple roles, we can draw on our database as part
+            of an agreed recruitment approach.
+          </p>
+
+          <p>
+            Candidates are considered against the requirements of each role.
+            Screening, shortlisting and other recruitment activities are
+            tailored to your hiring objectives and the scope agreed with you.
+          </p>
+
+          <p class="industry-cta">
+            <a class="btn" href="/contact/?s=recruitment">
+              Discuss Your Recruitment Needs
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="sec">
+      <div class="wrap">
+        <p class="lab">Let's work together</p>
+        <h2>What Does Your Business Need From Its People?</h2>
+
+        <p class="lead industry-intro">
+          Tell us about your organisation, your workforce priorities and the
+          support you are looking for. We can discuss the requirements and
+          identify an appropriate way forward.
+        </p>
+
+        <p style="margin-top:24px">
+          <a class="btn" href="/contact/">Start a Conversation</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap cols">
+
+      <div>
+        <p style="color:#fff;font:700 1.2rem var(--f-head);margin-bottom:.4em">
+          AgileTalent Associates Limited
+        </p>
+
+        <p>
+          Human resources consulting, recruitment and workforce solutions
+          for Nigerian organisations. Established 2022.
+        </p>
+
+        <div class="industry-contact">
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:agiletalents@outlook.com">agiletalents@outlook.com</a>
+          </p>
+
+          <p>
+            <strong>Phone:</strong>
+            <a href="tel:+2347036783875">+234 703 678 3875</a>
+          </p>
+
+          <p>
+            <strong>WhatsApp:</strong>
+            <a href="https://wa.me/2348152866467" target="_blank" rel="noopener noreferrer">
+              Chat with us
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/recruitment/">Recruitment</a></li>
+          <li><a href="/industries/">Who we serve</a></li>
+          <li><a href="/insights/">Insights</a></li>
+          <li><a href="/careers/">Careers</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Connect</h2>
+        <ul>
+          <li>
+            <a href="https://x.com/agiletalents_ng" target="_blank" rel="noopener noreferrer">
+              X
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/agiletalent-associates" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </li>
+          <li><a href="/privacy/">Privacy notice</a></li>
+        </ul>
+
+        <p class="industry-note" style="margin-top:1em">
+          Advisory support is not legal advice.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="wrap social-area">
+      <h2 class="social-heading">Connect with AgileTalent</h2>
+
+      <div class="social-links">
+        <a href="https://x.com/agiletalents_ng"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Follow AgileTalent Associates on X">
+          <svg class="social-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="32" fill="#000"/>
+            <path d="M18.9 15h8.2l7.4 10 8.8-10h3.1L36 27.1 47.5 49h-8.2l-8.1-11.7L20.9 49h-3.2l12-13.8L18.9 15zm4.5 2.7 17.2 28.6h3.1L26.5 17.7h-3.1z" fill="#fff"/>
+          </svg>
+          <span>X</span>
+        </a>
+
+        <a href="https://www.linkedin.com/company/agiletalent-associates"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Follow AgileTalent Associates on LinkedIn">
+          <svg class="social-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="32" fill="#0A66C2"/>
+            <g fill="#fff" transform="translate(14 14) scale(1.55)">
+              <path d="M3.5 6.5A2.25 2.25 0 1 0 3.5 2a2.25 2.25 0 0 0 0 4.5zM1.5 8h4v14h-4zM8 8h3.8v1.9h.1C12.4 8.8 13.8 7.6 16 7.6c4.1 0 4.9 2.7 4.9 6.2V22h-4v-7.3c0-1.8 0-4-2.4-4s-2.8 1.9-2.8 3.9V22H8z"/>
+            </g>
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <p style="margin-top:32px;font-size:.85rem">
+        &copy; 2026 AgileTalent Associates Limited. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <a style="display:none" class="btn sticky" id="sticky" href="/contact/">
+    Let’s Talk
+  </a>
+
+  <script src="/main.js"></script>
+</body>
+</html>
