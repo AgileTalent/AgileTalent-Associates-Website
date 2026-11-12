@@ -1,84 +1,47 @@
-import io, json, os, re, sys
+import io, json, shutil
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
 import requests
-from bs4 import BeautifulSoup
 from PIL import Image
 
 ROOT = Path("logos")
 ROOT.mkdir(exist_ok=True)
-SITES = [
-    ("eric-kayser", "Eric Kayser", "https://www.maison-kayser.com/gb/"),
-    ("autochek", "Autochek", "https://www.autochek.africa/ng/"),
-    ("novatrack", "NovaTrack", "https://novatrack.net/"),
-    ("rytegate-technologies", "RyteGate Technologies", "http://rytegate.com/"),
-    ("shine-shine-cosmetics", "Shine Shine Cosmetics", None),
-    ("hub360", "Hub360 Limited", "https://hub360.cc/"),
-    ("fifth-ascendant-group", "Fifth Ascendant Group", "https://fivestones.ng/"),
+SOURCES = [
+    ("Eric Kayser", "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=61579593071897", "eric-kayser.png", "eric-kayser.svg"),
+    ("NovaTrack", "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=61583801346451", "novatrack.png", None),
+    ("Rytegate Technologies", "https://pbs.twimg.com/profile_images/981160788160385025/h1L66k7m_400x400.jpg", "rytegate-technologies.jpg", None),
+    ("Shine Shine Cosmetics", "https://www.shineshinecosmetics.net/cdn/shop/files/Screenshot_2023-03-16_125626-removebg-preview_0b8b92f7-6266-4921-b3e6-09b3c275d907.png?v=1711235292", "shine-shine-cosmetics.png", None),
+    ("Hub360 Limited", "https://asoc.com.ng/logos/hub360.png", "hub360.png", "hub360.png"),
+    ("Fifth Ascendant Group", "https://thefifthascendantgroup.com/companies/fivestones.png", "fifth-ascendant-group.png", "fifth-ascendant-group.svg"),
 ]
 session = requests.Session()
-session.headers.update({"User-Agent":"Mozilla/5.0 (compatible; AgileTalentLogoAssetBot/1.0)"})
+session.headers.update({"User-Agent": "Mozilla/5.0"})
 results = []
-for slug, name, page_url in SITES:
-    if not page_url:
-        results.append({"name":name,"status":"skipped","reason":"No verified official website located; supplied image source is used in the site manifest."})
-        continue
+for name, url, filename, fallback in SOURCES:
     try:
-        response = session.get(page_url, timeout=25)
+        response = session.get(url, timeout=30)
         response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
-        candidates = []
-        header = soup.find("header")
-        scopes = [header] if header else []
-        scopes += [soup]
-        seen = set()
-        for scope in scopes:
-            for img in scope.find_all("img"):
-                src = img.get("src") or img.get("data-src") or img.get("data-lazy-src")
-                if not src: continue
-                absolute = urljoin(response.url, src)
-                if absolute in seen: continue
-                seen.add(absolute)
-                marker = " ".join([str(img.get("alt","")), str(img.get("title","")), str(img.get("class","")), absolute]).lower()
-                score = 0
-                if "logo" in marker: score += 10
-                if scope is header: score += 5
-                if any(x in marker for x in ["icon", "favicon", "avatar", "product", "banner", "slider"]): score -= 8
-                candidates.append((score, absolute, marker))
-        candidates.sort(reverse=True)
-        chosen = None
-        for score, image_url, marker in candidates:
-            if score < 5: continue
-            try:
-                asset = session.get(image_url, timeout=25)
-                asset.raise_for_status()
-                content_type = asset.headers.get("content-type","").lower()
-                if not content_type.startswith("image/"): continue
-                if "svg" in content_type or image_url.lower().split("?")[0].endswith(".svg"):
-                    if b"<svg" not in asset.content[:2000].lower(): continue
-                    out = ROOT / f"{slug}.svg"
-                    out.write_bytes(asset.content)
-                    chosen = out.name
-                    break
-                image = Image.open(io.BytesIO(asset.content))
-                image.load()
-                if image.width < 80 or image.height < 30: continue
-                if image.width > 5000 or image.height > 5000: continue
-                image = image.convert("RGBA")
-                out = ROOT / f"{slug}.png"
-                image.save(out, format="PNG", optimize=True)
-                chosen = out.name
-                break
-            except Exception:
-                continue
-        if chosen:
-            results.append({"name":name,"status":"downloaded","file":chosen,"source":response.url})
-            print(f"FOUND {name}: {chosen} from {response.url}")
-        else:
-            results.append({"name":name,"status":"not-found","reason":"Official site returned no clear logo image asset; supplied image source is used in the site manifest."})
-            print(f"NOT FOUND {name}: no unambiguous logo image")
+        image = Image.open(io.BytesIO(response.content))
+        image.load()
+        if image.width < 40 or image.height < 30 or image.width > 6000 or image.height > 6000:
+            raise ValueError("Image dimensions are outside the accepted range")
+        image = image.convert("RGBA")
+        image.save(ROOT / filename, format="PNG", optimize=True)
+        results.append({"name": name, "status": "downloaded", "file": filename, "source_url_used_for_download": True})
+        print(f"DOWNLOADED {name} -> {filename}")
     except Exception as exc:
-        results.append({"name":name,"status":"not-found","reason":str(exc)[:180]})
-        print(f"FAILED {name}: {exc}")
+        if fallback and (ROOT / fallback).exists():
+            results.append({"name": name, "status": "fallback-local", "file": fallback, "reason": str(exc)[:180]})
+            print(f"USING EXISTING LOCAL LOGO FOR {name}: {fallback}")
+        else:
+            results.append({"name": name, "status": "failed", "file": None, "reason": str(exc)[:180]})
+            print(f"FAILED {name}: {exc}")
 (ROOT / "fetch-results.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
-print(json.dumps(results, indent=2))
+
+# Keep every image reference local. Never put source URLs in the public manifest.
+manifest_path = ROOT / "logos.json"
+manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+resolved = {item["name"]: item["file"] for item in results}
+for item in manifest:
+    if item["name"] in resolved:
+        item["file"] = resolved[item["name"]]
+manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
