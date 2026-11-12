@@ -3,13 +3,13 @@
     "name": "Eric Kayser",
     "status": "fallback-local",
     "file": "eric-kayser.svg",
-    "reason": "cannot identify image file <_io.BytesIO object at 0x7a9ffeb04c20>"
+    "reason": "404 Client Error: Not Found for url: https://th.bing.com/th/id/R.3aad94f67f8b89d5890a79d09468e285?rik=WKEpZHZPKNW4iw&pid=ImgRaw&r=0"
   },
   {
     "name": "NovaTrack",
     "status": "failed",
     "file": null,
-    "reason": "cannot identify image file <_io.BytesIO object at 0x7a9ffeb04e50>"
+    "reason": "404 Client Error: Not Found for url: https://th.bing.com/th/id/R.255bb9b7670c9d1df12e8eee9426c31e?rik=e1wvgaqtLNybGA&pid=ImgRaw&r=0"
   },
   {
     "name": "Rytegate Technologies",
