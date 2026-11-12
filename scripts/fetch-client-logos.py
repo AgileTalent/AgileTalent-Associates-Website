@@ -6,8 +6,8 @@ from PIL import Image
 ROOT = Path("logos")
 ROOT.mkdir(exist_ok=True)
 SOURCES = [
-    ("Eric Kayser", "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=61579593071897", "eric-kayser.png", "eric-kayser.svg"),
-    ("NovaTrack", "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=61583801346451", "novatrack.png", None),
+    ("Eric Kayser", "https://th.bing.com/th/id/R.3aad94f67f8b89d5890a79d09468e285?rik=WKEpZHZPKNW4iw&pid=ImgRaw&r=0", "eric-kayser.png", "eric-kayser.svg"),
+    ("NovaTrack", "https://th.bing.com/th/id/R.255bb9b7670c9d1df12e8eee9426c31e?rik=e1wvgaqtLNybGA&pid=ImgRaw&r=0", "novatrack.png", None),
     ("Rytegate Technologies", "https://pbs.twimg.com/profile_images/981160788160385025/h1L66k7m_400x400.jpg", "rytegate-technologies.png", "rytegate-technologies.jpg"),
     ("Shine Shine Cosmetics", "https://www.shineshinecosmetics.net/cdn/shop/files/Screenshot_2023-03-16_125626-removebg-preview_0b8b92f7-6266-4921-b3e6-09b3c275d907.png?v=1711235292", "shine-shine-cosmetics.png", None),
     ("Hub360 Limited", "https://asoc.com.ng/logos/hub360.png", "hub360.png", None),
