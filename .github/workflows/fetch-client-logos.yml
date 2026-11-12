@@ -1,4 +1,4 @@
-name: Download supplied client logos
+name: Download supplied client logos # refresh download job
 on:
   push:
     paths:
