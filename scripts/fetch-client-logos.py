@@ -13,8 +13,6 @@ SITES = [
     ("novatrack", "NovaTrack", "https://novatrack.net/"),
     ("rytegate-technologies", "RyteGate Technologies", "http://rytegate.com/"),
     ("shine-shine-cosmetics", "Shine Shine Cosmetics", None),
-    ("algorism", "Algorism Limited", "https://www.algorismng.com/"),
-    ("vdt-communications", "VDT Communications", "https://vdtcomms.com/"),
     ("hub360", "Hub360 Limited", "https://hub360.cc/"),
     ("fifth-ascendant-group", "Fifth Ascendant Group", "https://fivestones.ng/"),
 ]
@@ -23,7 +21,7 @@ session.headers.update({"User-Agent":"Mozilla/5.0 (compatible; AgileTalentLogoAs
 results = []
 for slug, name, page_url in SITES:
     if not page_url:
-        results.append({"name":name,"status":"skipped","reason":"No verified official website located; no third-party logo substituted."})
+        results.append({"name":name,"status":"skipped","reason":"No verified official website located; supplied image source is used in the site manifest."})
         continue
     try:
         response = session.get(page_url, timeout=25)
@@ -77,7 +75,7 @@ for slug, name, page_url in SITES:
             results.append({"name":name,"status":"downloaded","file":chosen,"source":response.url})
             print(f"FOUND {name}: {chosen} from {response.url}")
         else:
-            results.append({"name":name,"status":"not-found","reason":"Official site returned no clear logo image asset; left blank rather than guessing."})
+            results.append({"name":name,"status":"not-found","reason":"Official site returned no clear logo image asset; supplied image source is used in the site manifest."})
             print(f"NOT FOUND {name}: no unambiguous logo image")
     except Exception as exc:
         results.append({"name":name,"status":"not-found","reason":str(exc)[:180]})
