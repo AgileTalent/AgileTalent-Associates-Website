@@ -1,4 +1,4 @@
-name: Download supplied client logos # refresh download job
+name: Download supplied client logos # retry supplied image CDN downloads
 on:
   push:
     paths:
