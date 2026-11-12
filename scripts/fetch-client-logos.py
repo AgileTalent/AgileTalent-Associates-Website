@@ -36,11 +36,11 @@ for name, url, filename, fallback in SOURCES:
             results.append({"name": name, "status": "failed", "file": None, "reason": str(exc)[:180]})
             print(f"FAILED {name}: {exc}")
 
-(ROOT / "fetch-results.json").write_text(json.dumps(results, indent=2) + "\\n", encoding="utf-8")
+(ROOT / "fetch-results.json").write_text(json.dumps(results, indent=2) + "\n", encoding="utf-8")
 manifest_path = ROOT / "logos.json"
 manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 resolved = {item["name"]: item["file"] for item in results if item.get("file")}
 for item in manifest:
     if item["name"] in resolved:
         item["file"] = resolved[item["name"]]
-manifest_path.write_text(json.dumps(manifest, indent=2) + "\\n", encoding="utf-8")
+manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
