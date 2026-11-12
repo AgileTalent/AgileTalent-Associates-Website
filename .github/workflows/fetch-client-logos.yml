@@ -1,4 +1,4 @@
-name: Fetch official client logos # stash and rebase
+name: Download supplied client logos
 on:
   push:
     paths:
@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
 jobs:
-  fetch:
+  download:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,36 +16,17 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install image processing dependencies
-        run: pip install requests beautifulsoup4 pillow
-      - name: Fetch logos from official company websites
+        run: pip install requests pillow
+      - name: Download supplied image URLs into local assets
         run: python scripts/fetch-client-logos.py
-      - name: Update manifest with verified downloads
+      - name: Commit local image files and manifest
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          manifest_path = Path("logos/logos.json")
-          manifest = json.loads(manifest_path.read_text())
-          results = json.loads(Path("logos/fetch-results.json").read_text())
-          available = {item["name"]: item["file"] for item in results if item["status"] == "downloaded"}
-          for item in manifest:
-              if item["name"] in available:
-                  item["file"] = available[item["name"]]
-              else:
-                  item["file"] = None
-          manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
-          PY
-      - name: Commit downloaded official logo assets
-        run: |
-          git stash push --include-untracked -m logo-fetch-worktree || true
-          git pull --rebase origin main
-          git stash pop || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add logos/
           if git diff --cached --quiet; then
-            echo "No official logo assets found to commit."
+            echo "No logo asset changes."
           else
-            git commit -m "Add available official client logo assets"
+            git commit -m "Download client logos into local assets"
             git push
           fi
