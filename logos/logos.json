@@ -1,7 +1,7 @@
 [
   {
     "name": "Eric Kayser",
-    "file": "eric-kayser.png"
+    "file": "eric-kayser.svg"
   },
   {
     "name": "Autochek",
@@ -9,19 +9,19 @@
   },
   {
     "name": "Novatrack",
-    "file": "novatrack.png"
+    "file": null
   },
   {
     "name": "Rytegate Technologies",
-    "file": "rytegate-technologies.png"
+    "file": null
   },
   {
     "name": "Shine Shine Cosmetics",
-    "file": "shine-shine-cosmetics.png"
+    "file": null
   },
   {
     "name": "Algorism Limited",
-    "file": "algorism.png"
+    "file": "algorism.svg"
   },
   {
     "name": "VDT Communications",
@@ -29,10 +29,10 @@
   },
   {
     "name": "Hub360 Limited",
-    "file": "hub360.png"
+    "file": null
   },
   {
     "name": "Fifth Ascendant Group",
-    "file": "fifth-ascendant-group.png"
+    "file": "fifth-ascendant-group.svg"
   }
 ]
