@@ -19,7 +19,7 @@
   {
     "name": "RyteGate Technologies",
     "status": "not-found",
-    "reason": "500 Server Error: Internal Server Error for url: https://www.rytegate.com/"
+    "reason": "500 Server Error: Internal Server Error for url: http://rytegate.com/"
   },
   {
     "name": "Shine Shine Cosmetics",
@@ -39,7 +39,7 @@
     "source": "https://vdtcomms.com/"
   },
   {
-    "name": "Hub360 Circuits Limited",
+    "name": "Hub360 Limited",
     "status": "downloaded",
     "file": "hub360.png",
     "source": "https://hub360.cc/"
