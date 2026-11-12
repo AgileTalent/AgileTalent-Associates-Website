@@ -32,6 +32,7 @@ jobs:
         run: |
           python3 <<'PY'
           from pathlib import Path
+          from urllib.parse import unquote
           import re
 
           root = Path("_site")
@@ -54,13 +55,12 @@ jobs:
           if cname != "agiletalentassociates.com":
               raise SystemExit("Unexpected CNAME: " + cname)
 
-          # Check all root-relative HTML references resolve to a file, directory index,
-          # or intentional in-page anchor. Ignore external links and query strings.
+          # Decode URL-escaped filenames (e.g. spaces and @) before checking paths.
           problems = []
           for path in root.rglob("*.html"):
               source = path.read_text(encoding="utf-8")
               for match in re.finditer(r"""(?i)\b(?:href|src|action|poster|data-src)\s*=\s*["'](/(?!/)[^"']*)["']""", source):
-                  value = match.group(1).split("#", 1)[0].split("?", 1)[0]
+                  value = unquote(match.group(1).split("#", 1)[0].split("?", 1)[0])
                   if not value or value == "/":
                       continue
                   target = root / value.lstrip("/")
