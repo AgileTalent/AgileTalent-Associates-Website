@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free CV Builder | AgileTalent Career Studio</title>
+  <meta name="description" content="Improve your CV with AgileTalent Career Studio. Get a virtual-assisted CV review, refine your professional profile and download your revised CV.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://agiletalentassociates.com/career-studio/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="career-studio.css">
+</head>
+
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<header>
+  <div class="wrap bar">
+
+    <a class="brand" href="/" aria-label="AgileTalent Associates home">
+      <img
+        class="mark"
+        src="/Artboard 4@4x.png"
+        alt="AgileTalent Associates"
+        onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'wm',textContent:'AgileTalent Associates'}))"
+      >
+      <span class="brand-descriptor">Recruitment &amp; HR Consulting in Nigeria</span>
+    </a>
+
+    <button
+      class="menu"
+      id="menu"
+      aria-expanded="false"
+      aria-controls="nav"
+      type="button"
+    >
+      Menu
+    </button>
+
+    <nav id="nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/recruitment/">Recruitment</a></li>
+        <li><a href="/industries/">Who We Serve</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/careers/">Careers</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a class="btn" href="/contact/">Let's Talk</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <section class="career-studio" id="career-studio">
+
+    <div class="cs-wrap">
+
+      <!-- INTRODUCTION -->
+
+      <div class="cs-hero">
+
+        <p class="cs-kicker">AGILETALENT CAREER STUDIO</p>
+
+        <h1>Your experience deserves a better CV.</h1>
+
+        <p class="cs-intro">
+          Give your CV a professional upgrade. Upload your existing CV,
+          receive a CV review and work with our virtual assistant to
+          improve how your experience and achievements are presented.
+        </p>
+
+        <div class="cs-hero-points">
+          <span>Free to use</span>
+          <span>PDF and Word supported</span>
+          <span>Download in Word format</span>
+        </div>
+
+      </div>
+
+      <!-- UPLOAD PANEL -->
+
+      <section class="cs-panel cs-upload-panel" id="cs-upload-panel">
+
+        <div class="cs-panel-heading">
+
+          <span class="cs-step-label">GET STARTED</span>
+
+          <h2>Upload your CV</h2>
+
+          <p>
+            Start with your current CV. Our assistant will review it
+            and prepare an improved draft for you.
+          </p>
+
+        </div>
+
+        <div class="cs-upload-control">
+
+          <label class="cs-label" for="cs-file">
+            Select your CV
+          </label>
+
+          <input
+            id="cs-file"
+            type="file"
+            accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          >
+
+          <p class="cs-hint">
+            Accepted formats: PDF or DOCX. Maximum file size: 8 MB.
+          </p>
+
+        </div>
+
+        <label class="cs-consent" for="cs-consent">
+
+          <input type="checkbox" id="cs-consent">
+
+          <span>
+            I have read the
+            <a href="/privacy/" target="_blank" rel="noopener noreferrer">
+              Privacy Notice
+            </a>
+            and consent to my CV being processed to provide this service.
+          </span>
+
+        </label>
+
+        <p
+          id="cs-rebuild-usage"
+          class="cs-usage"
+          aria-live="polite"
+        >
+          Free CV rebuilds used this month: 0 of 2.
+        </p>
+
+        <button
+          class="cs-button cs-start-button"
+          id="cs-start"
+          type="button"
+        >
+          Analyse and improve my CV
+        </button>
+
+        <p
+          class="cs-status"
+          id="cs-upload-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </section>
+
+      <!-- WORKSPACE -->
+
+      <section
+        class="cs-workspace"
+        id="cs-workspace"
+        aria-label="Your CV improvement workspace"
+        hidden
+      >
+
+        <div class="cs-workspace-header">
+
+          <div>
+            <span class="cs-step-label">YOUR WORKSPACE</span>
+            <h2>Let's improve your CV.</h2>
+            <p>
+              Review the feedback, give instructions and refine your CV
+              with the assistant.
+            </p>
+          </div>
+
+          <span class="cs-session-indicator">
+            <span class="cs-session-dot"></span>
+            Active session
+          </span>
+
+        </div>
+
+        <!-- CONVERSATION FIRST -->
+
+        <section class="cs-chat" aria-label="Conversation with your CV assistant">
+
+          <div class="cs-chat-heading">
+
+            <div>
+              <span class="cs-step-label">VIRTUAL ASSISTANT</span>
+              <h2>Your CV assistant</h2>
+              <p>
+                Tell the assistant what you want to improve.
+              </p>
+            </div>
+
+            <span class="cs-chat-count" id="cs-chat-counter">
+              0 / 5
+            </span>
+
+          </div>
+
+          <div
+            id="cs-messages"
+            class="cs-messages"
+            aria-live="polite"
+            aria-relevant="additions"
+          ></div>
+
+          <form id="cs-chat-form">
+
+            <p
+              id="cs-chat-usage"
+              class="cs-usage"
+              aria-live="polite"
+            >
+              Conversation exchanges used: 0 of 5.
+            </p>
+
+            <label class="cs-label" for="cs-message">
+              What would you like to change?
+            </label>
+
+            <textarea
+              id="cs-message"
+              rows="3"
+              maxlength="4000"
+              placeholder="For example: Tailor my CV for a Senior Accountant role in a commercial bank. Highlight my financial reporting, audit and leadership experience."
+            ></textarea>
+
+            <div class="cs-chat-actions">
+
+              <p class="cs-hint">
+                Be specific about the role, industry or experience
+                you want highlighted.
+              </p>
+
+              <button
+                class="cs-button"
+                id="cs-send"
+                type="submit"
+              >
+                Send instructions
+              </button>
+
+            </div>
+
+          </form>
+
+        </section>
+
+        <!-- CV REVIEW -->
+
+        <section class="cs-result-section">
+
+          <details class="cs-accordion" id="cs-analysis-accordion">
+
+            <summary>
+              <span>
+                <strong>CV review and recommendations</strong>
+                <small>See the feedback from your CV analysis</small>
+              </span>
+              <span class="cs-accordion-icon" aria-hidden="true">+</span>
+            </summary>
+
+            <div class="cs-accordion-content">
+
+              <div class="cs-analysis">
+                <p id="cs-analysis-text"></p>
+              </div>
+
+            </div>
+
+          </details>
+
+          <!-- REVISED CV PREVIEW -->
+
+          <details class="cs-accordion" id="cs-preview-accordion">
+
+            <summary>
+              <span>
+                <strong>Your revised CV draft</strong>
+                <small>Review the latest version prepared by the assistant</small>
+              </span>
+              <span class="cs-accordion-icon" aria-hidden="true">+</span>
+            </summary>
+
+            <div class="cs-accordion-content">
+
+              <p class="cs-preview-hint">
+                This draft updates as you request changes. Review it
+                carefully before downloading.
+              </p>
+
+              <pre id="cs-cv-preview" aria-live="polite"></pre>
+
+            </div>
+
+          </details>
+
+        </section>
+
+        <!-- DOWNLOAD -->
+
+        <section class="cs-download">
+
+          <div class="cs-download-copy">
+            <span class="cs-step-label">YOUR DOCUMENT</span>
+            <h2>Ready to download?</h2>
+            <p>
+              Download the latest revised version of your CV as a
+              Microsoft Word document.
+            </p>
+          </div>
+
+          <button
+            class="cs-button cs-download-button"
+            id="cs-download"
+            type="button"
+          >
+            Download revised CV
+          </button>
+
+        </section>
+
+        <!-- SESSION MANAGEMENT -->
+
+        <div class="cs-session-management">
+
+          <p>
+            Finished with your CV? You can end this session and request
+            deletion of its temporary data.
+          </p>
+
+          <button
+            class="cs-text-button"
+            id="cs-delete"
+            type="button"
+          >
+            End session and delete my CV session
+          </button>
+
+        </div>
+
+      </section>
+
+      <!-- SERVICE INFORMATION -->
+
+      <section class="cs-information">
+
+        <h2>A more practical way to improve your CV.</h2>
+
+        <p>
+          Career Studio helps you communicate your professional
+          experience more clearly. You remain in control of your CV:
+          review the suggestions, request changes and download the
+          version you approve.
+        </p>
+
+        <p>
+          This service does not guarantee ATS selection, interviews
+          or employment. CVs submitted through Career Studio are not
+          automatically added to AgileTalent's recruitment database.
+        </p>
+
+      </section>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="wrap cols">
+
+    <div>
+      <p style="color:#fff;font:700 1.2rem var(--f-head);margin-bottom:.4em">
+        AgileTalent Associates Limited
+      </p>
+
+      <p>
+        Human resources consulting, recruitment and workforce solutions
+        for Nigerian organisations. Established 2022.
+      </p>
+
+      <p>
+        <a href="mailto:agiletalents@outlook.com">
+          agiletalents@outlook.com
+        </a>
+      </p>
+
+      <p>
+        <a href="tel:+2347036783875">
+          +234 703 678 3875
+        </a>
+      </p>
+    </div>
+
+    <div>
+      <h2>Explore</h2>
+
+      <ul>
+        <li><a href="/about/">About us</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/recruitment/">Recruitment</a></li>
+        <li><a href="/careers/">Careers</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Connect</h2>
+
+      <ul>
+        <li>
+          <a href="https://x.com/agiletalents_ng" target="_blank" rel="noopener noreferrer">
+            X
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/company/agiletalent-associates" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </li>
+
+        <li><a href="/privacy/">Privacy Notice</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="wrap">
+    <p style="margin-top:32px;font-size:.85rem">
+      &copy; 2026 AgileTalent Associates Limited. All rights reserved.
+    </p>
+  </div>
+
+</footer>
+
+<a class="btn sticky" id="sticky" href="/contact/">Let's Talk</a>
+
+<script src="/main.js"></script>
+<script src="/career-studio.js" defer></script>
+
+</body>
+</html>
