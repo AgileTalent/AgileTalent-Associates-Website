@@ -1,41 +1,38 @@
 [
   {
     "name": "Eric Kayser",
-    "status": "downloaded",
+    "status": "fallback-local",
     "file": "eric-kayser.svg",
-    "source": "https://maison-kayser.com/en/accueil/"
-  },
-  {
-    "name": "Autochek",
-    "status": "downloaded",
-    "file": "autochek.png",
-    "source": "https://www.autochek.africa/ng"
+    "reason": "cannot identify image file <_io.BytesIO object at 0x709f48b08d60>"
   },
   {
     "name": "NovaTrack",
-    "status": "not-found",
-    "reason": "Official site returned no clear logo image asset; supplied image source is used in the site manifest."
+    "status": "failed",
+    "file": null,
+    "reason": "cannot identify image file <_io.BytesIO object at 0x709f48b08f90>"
   },
   {
-    "name": "RyteGate Technologies",
-    "status": "not-found",
-    "reason": "Official site returned HTTP 500; supplied image source is used in the site manifest."
+    "name": "Rytegate Technologies",
+    "status": "downloaded",
+    "file": "rytegate-technologies.jpg",
+    "source_url_used_for_download": true
   },
   {
     "name": "Shine Shine Cosmetics",
-    "status": "skipped",
-    "reason": "No verified official website located; supplied image source is used in the site manifest."
+    "status": "downloaded",
+    "file": "shine-shine-cosmetics.png",
+    "source_url_used_for_download": true
   },
   {
     "name": "Hub360 Limited",
     "status": "downloaded",
     "file": "hub360.png",
-    "source": "https://hub360.cc/"
+    "source_url_used_for_download": true
   },
   {
     "name": "Fifth Ascendant Group",
     "status": "downloaded",
-    "file": "fifth-ascendant-group.svg",
-    "source": "https://fivestones.ng/"
+    "file": "fifth-ascendant-group.png",
+    "source_url_used_for_download": true
   }
 ]

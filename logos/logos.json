@@ -1,9 +1,30 @@
 [
-  {"name":"Eric Kayser","file":"eric-kayser.png"},
-  {"name":"Autochek","file":"autochek.png"},
-  {"name":"NovaTrack","file":"novatrack.png"},
-  {"name":"Rytegate Technologies","file":"rytegate-technologies.jpg"},
-  {"name":"Shine Shine Cosmetics","file":"shine-shine-cosmetics.png"},
-  {"name":"Hub360 Limited","file":"hub360.png"},
-  {"name":"Fifth Ascendant Group","file":"fifth-ascendant-group.png"}
+  {
+    "name": "Eric Kayser",
+    "file": "eric-kayser.svg"
+  },
+  {
+    "name": "Autochek",
+    "file": "autochek.png"
+  },
+  {
+    "name": "NovaTrack",
+    "file": null
+  },
+  {
+    "name": "Rytegate Technologies",
+    "file": "rytegate-technologies.jpg"
+  },
+  {
+    "name": "Shine Shine Cosmetics",
+    "file": "shine-shine-cosmetics.png"
+  },
+  {
+    "name": "Hub360 Limited",
+    "file": "hub360.png"
+  },
+  {
+    "name": "Fifth Ascendant Group",
+    "file": "fifth-ascendant-group.png"
+  }
 ]
