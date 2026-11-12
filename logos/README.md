@@ -1,23 +1,27 @@
 # Client and partner logo assets
 
-This folder contains the logo image files used by the scrolling marquees on the About and Careers pages.
+This folder contains the logo assets used by the scrolling marquees on the About and Careers pages.
 
-## Official logos currently installed
+## Organisations represented
 
-- `eric-kayser.svg` — sourced from Maison Kayser's official website
-- `autochek.png` — sourced from Autochek's official website
-- `algorism.svg` — sourced from Algorism Limited's official website
-- `vdt-communications.png` — sourced from VDT Communications' official website
-- `hub360.png` — sourced from Hub360's official website (the site's legal entity name is Hub360 Circuits Limited)
-- `fifth-ascendant-group.svg` — sourced from FiveStones, the Fifth Ascendant Group platform
+The organisation list follows the existing V3 homepage's "Organisations we have worked with" section, with Hub360 Limited and Fifth Ascendant Group added as separately confirmed by the business owner:
 
-The manifest is `logos.json`. Only entries with a real file are shown in the carousel. The following organisations remain listed but do not yet have a verified official logo asset in this repository: NovaTrack, RyteGate Technologies and Shine Shine Cosmetics. They are deliberately omitted from the visual carousel until a suitable logo can be confirmed.
+- Eric Kayser
+- Autochek
+- NovaTrack
+- Rytegate Technologies
+- Shine Shine Cosmetics
+- Hub360 Limited
+- Fifth Ascendant Group
 
-## Adding another organisation later
+Algorism Limited and VDT Communications have been removed from the list. They must not be presented as AgileTalent clients or organisations worked with.
 
-1. Upload its official logo image into this folder.
-2. Open `logos.json` and add an object with the organisation name and exact filename. Example:
-   `{"name":"New Client Limited","file":"new-client.png"}`
-3. Save the change. Both About and Careers pages read from this shared manifest automatically; no HTML or JavaScript edits are needed.
+## Logo sources and maintenance
 
-Use an official logo file (transparent PNG or SVG where possible), preserve its aspect ratio, and keep it compact. Do not redraw, recolour or stretch the mark. Confirm an appropriate basis or permission to display each organisation's logo.
+The shared manifest is `logos.json`. Each entry can use either:
+- `file`: a logo file stored in this folder; or
+- `src`: a direct image URL supplied or verified for that organisation.
+
+The About and Careers marquees read from the same manifest automatically. To add an organisation later, upload its image to this folder and add its name and filename to `logos.json`. No HTML or JavaScript edits are needed.
+
+Use accurate organisation names, preserve logo proportions, and keep the marks compact. Do not add an organisation to this list unless the business owner confirms the working relationship. If a remote image source changes or becomes unavailable, replace it with a locally stored image file.
